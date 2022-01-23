@@ -69,11 +69,6 @@ fn main() {
             )
             .expect("Please ensure all your paths exist.");
             combine.combine().expect("Failed to export the built image");
-            println!(
-                "Sprites: {}, Dest: {}",
-                sprites_folder.display(),
-                dest_folder.display()
-            )
         }
     }
 }
