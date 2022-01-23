@@ -2,6 +2,12 @@
 name = "font-splitter"
 version = "0.1.0"
 edition = "2021"
+description = "A tool to split and recombobulate geometry dash font sprite sheets"
+repository = "https://github.com/Cobular/FontSplitter"
+readme = "README.md"
+license = "GPLv3"
+license-file = "LICENSE.md"
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
