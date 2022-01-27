@@ -51,7 +51,7 @@ jobs:
           ~/.cargo/git
           ~/.rustup
           target
-        key: ${{ runner.os }}-${{ matrix.rust }}
+        key: ${{ runner.os }}-${{ matrix.rust }}-${{ matrix.target }}
 
     - uses: actions-rs/cargo@v1
       with:
@@ -61,6 +61,7 @@ jobs:
 
     - name: Package Artifacts
       run: |
+        shopt -s extglob
         src=$(pwd)
         stage=
         case $RUNNER_OS in
@@ -71,10 +72,10 @@ jobs:
                 stage=$(mktemp -d -t tmp)
                 ;;
         esac
-        cp target/${{ matrix.target }}/release/sysit $stage/
+        cp target/${{ matrix.target }}/release/font-splitter?(.exe) $stage/
         cd $stage
         RELEASE_VERSION=${GITHUB_REF#refs/tags/}
-        ASSET_NAME="sysit-$RELEASE_VERSION-${{ matrix.target }}.tar.gz"
+        ASSET_NAME="font-splitter-$RELEASE_VERSION-${{ matrix.target }}.tar.gz"
         ASSET_PATH="$src/$ASSET_NAME"
         CHECKSUM_PATH="$ASSET_PATH.sha256"
         echo "ASSET_PATH=$ASSET_PATH" >> $GITHUB_ENV

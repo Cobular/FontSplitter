@@ -5,7 +5,6 @@ edition = "2021"
 description = "A tool to split and recombobulate geometry dash font sprite sheets"
 repository = "https://github.com/Cobular/FontSplitter"
 readme = "README.md"
-license = "GPLv3"
 license-file = "LICENSE.md"
 
 
